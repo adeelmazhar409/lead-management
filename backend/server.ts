@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import { PrismaClient } from "@prisma/client";
 
@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 });
 
 // POST /leads - Add a new lead
-app.post("/leads", async (req, res) => {
+app.post("/leads", async (req: Request, res: Response) => {
   const { name, email, status } = req.body;
   try {
     const newLead = await prisma.lead.create({
@@ -34,7 +34,7 @@ app.post("/leads", async (req, res) => {
 });
 
 // GET /leads - Fetch all leads
-app.get("/leads", async (req, res) => {
+app.get("/leads", async (req: Request, res: Response) => {
   try {
     const leads = await prisma.lead.findMany();
     res.status(200).json(leads);

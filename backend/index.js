@@ -6,6 +6,10 @@ const prisma = new PrismaClient();
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Leads Management API");
+});
+
 // Endpoint to create a new lead
 app.post("/leads", async (req, res) => {
   const { name, email, status } = req.body;

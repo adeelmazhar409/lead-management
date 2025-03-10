@@ -66,12 +66,12 @@ const Leads: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-md mt-4 mx-auto p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-2xl font-bold text-center mb-4">Leads Management</h1>
       <form className="space-y-4" onSubmit={handleSubmit}>
         <div className="input-group">
           <label
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-black"
             htmlFor="name"
           >
             Name
@@ -88,7 +88,7 @@ const Leads: React.FC = () => {
         </div>
         <div className="input-group">
           <label
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-black"
             htmlFor="email"
           >
             Email
@@ -105,7 +105,7 @@ const Leads: React.FC = () => {
         </div>
         <div className="input-group">
           <label
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-black"
             htmlFor="status"
           >
             Status
@@ -128,7 +128,7 @@ const Leads: React.FC = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white font-bold py-2 rounded-md hover:bg-blue-600 transition duration-200"
+          className="w-full cursor-pointer bg-blue-500 text-white font-bold py-2 rounded-md hover:bg-blue-600 transition duration-200"
         >
           Add Lead
         </button>

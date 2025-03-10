@@ -20,37 +20,54 @@ app.get("/", (req, res) => {
 
 // Endpoint to create a new lead
 app.post("/leads", async (req, res) => {
-  const { name, email, status } = req.body;
-  const lead = await prisma.lead.create({
-    data: { name, email, status },
-  });
-  res.json(lead);
+  try {
+    const { name, email, status } = req.body;
+    const lead = await prisma.lead.create({
+      data: { name, email, status },
+    });
+    res.json(lead);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send();
+  }
 });
 
 // Endpoint to get all leads
 app.get("/leads", async (req, res) => {
-  const leads = await prisma.lead.findMany();
-  res.json(leads);
+  try {
+    const leads = await prisma.lead.findMany();
+    res.json(leads);
+  } catch (error) {
+    res.status(400).send();
+  }
 });
 
 // Endpoint to update a lead
 app.put("/leads/:id", async (req, res) => {
-  const { id } = req.params;
-  const { name, email, status } = req.body;
-  const lead = await prisma.lead.update({
-    where: { id: Number(id) },
-    data: { name, email, status },
-  });
-  res.json(lead);
+  try {
+    const { id } = req.params;
+    const { name, email, status } = req.body;
+    const lead = await prisma.lead.update({
+      where: { id: Number(id) },
+      data: { name, email, status },
+    });
+    res.json(lead);
+  } catch (error) {
+    res.status(400).send();
+  }
 });
 
 // Endpoint to delete a lead
 app.delete("/leads/:id", async (req, res) => {
-  const { id } = req.params;
-  await prisma.lead.delete({
-    where: { id: Number(id) },
-  });
-  res.status(204).send();
+  try {
+    const { id } = req.params;
+    await prisma.lead.delete({
+      where: { id: Number(id) },
+    });
+    res.status(204).send();
+  } catch (error) {
+    res.status(400).send();
+  }
 });
 
 const PORT = process.env.PORT || 5000;

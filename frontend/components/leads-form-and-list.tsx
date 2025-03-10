@@ -134,7 +134,7 @@ const Leads: React.FC = () => {
         </button>
       </form>
       <h2 className="text-xl font-semibold mt-6">Leads List</h2>
-      <ul className="mt-4 space-y-2">
+      <ul className="mt-4 space-y-2 overflow-y-auto max-h-[200px]">
         {leads.map((lead) => (
           <li
             key={lead.id}

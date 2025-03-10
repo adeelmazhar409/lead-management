@@ -1,9 +1,0 @@
-{
-  "scripts": {
-    "start": "node dist/server.js",
-    "build": "tsc",
-    "dev": "ts-node-dev backend/server.ts",
-    "build-backend": "tsc -p backend/tsconfig.json",
-    "start-backend": "npm run build-backend && node backend/dist/server.js"
-  }
-}
